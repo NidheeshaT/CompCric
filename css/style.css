@@ -1,0 +1,56 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+#window{
+    width: 80%;
+    background-color: rgb(115, 255, 248);
+    display: flex;
+    flex-direction: column;
+}
+
+/* direct div child of  window */
+#window > section{
+    margin: 20px 0px;
+}
+
+#top{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* MID section */
+#mid{
+    height: 50%;
+    box-sizing: border-box;
+}
+
+#result{
+    font-size: 10vw;
+    background-color: rgb(117, 255, 117);
+    margin: 5% 20%;
+    text-align: center;
+}
+#bottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2%;
+}
+
+#bottom button{
+    padding: 5px 10px;
+    margin: 2%;
+    background-color: hotpink;
+}
