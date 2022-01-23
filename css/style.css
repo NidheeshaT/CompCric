@@ -23,7 +23,7 @@ body{
 
 /* direct div child of  window */
 #window > section{
-    margin: 20px 1%;
+    margin: 2% 1%;
 }
 
 /* Top/game info */
@@ -57,7 +57,7 @@ body{
     color: rgb(238, 238, 238);
     text-shadow: 1px 2px black;
     text-shadow: -2px -2px 5px black;
-    padding: 20px 10px;
+    padding: 2% 1%;
     font-size: 15vmin;
     background-color: rgb(80, 255, 80);
     margin: 5% 15vw;
