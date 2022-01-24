@@ -3,9 +3,11 @@
     padding: 0px;
     font-weight: bold;
     box-sizing: border-box;
+    font-family:  'Roboto Slab', serif;
 }
 
 body{
+    background:url(../resources/background.jpg) #0a0025 center center/cover; /* https://source.unsplash.com/1080x600/?river */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,17 +15,11 @@ body{
     width: 100vw;
 }
 
-
 #window{
     width: 80%;
-    background: linear-gradient(0deg,rgb(182 247 221),white,rgb(182 247 221));
+    background: url(../resources/stadium.jpg) rgb(129 233 43) center center/cover;
     display: flex;
     flex-direction: column;
-}
-
-/* direct div child of  window */
-#window > section{
-    margin: 2% 1%;
 }
 
 /* Top/game info */
@@ -32,6 +28,7 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
     color:black;
+    margin-top:0.5%;
 }
 
 #top > div{
@@ -90,7 +87,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 2%;
 }
 
 #bottom button{
