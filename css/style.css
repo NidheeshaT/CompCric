@@ -35,6 +35,12 @@ body{
     margin: 3px;
 }
 
+#over{
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}
+
 .box{
     display: inline-block;
     color: white;
