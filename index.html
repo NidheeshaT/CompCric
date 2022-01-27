@@ -11,13 +11,13 @@
 <body>
     <section id="window" class="box-shadow">
         <section id="top" class="sharp">
-            <div id="target">
+            <div id="target-box">
                 Target:
-                <span class="box">-</span>
+                <span id="target"class="box">-</span>
             </div>
             <div id="over-scores">
                 Over
-                <span class="box" id="over">2/10</span> :
+                <span class="box">-/-</span> :
                 <span class="box">-</span>
                 <span class="box">-</span>
                 <span class="box">-</span>
@@ -28,31 +28,31 @@
             <div id="current-score">
                 <div>
                     Runs: 
-                    <span class="box">64 /4</span>
+                    <span class="box">-/-</span>
                 </div>
                 <div>
                     Wickets left:
-                    <span class="box">6</span>
+                    <span class="box">-</span>
                 </div>
             </div>
         </section>
         <section id="mid">
             <div id="comp">
                 <div>Computer:</div>
-                <div id="comp-stat">Bowling</div>
-                 <div id="comp-value">2</div>
+                <div id="comp-stat" class="mid-js">Bowling</div>
+                 <div id="comp-value" class="mid-js">-</div>
             </div>
-            <div id="result" class="sharp">
-                6
+            <div id="result" class="sharp mid-js">
+                OUT
             </div>
             <div id="user">
                 <div>You:</div>
-                <div id="user-stat">Batting</div>
-                <div id="user-value">6</div>
+                <div id="user-stat" class="mid-js">Batting</div>
+                <div id="user-value" class="mid-js">-</div>
             </div>
         </section>
         <section id="bottom">
-            <button id="one"  class="box-shadow sharp">1</button>
+            <button id="one"  value="1"class="box-shadow sharp">1</button>
             <button id="two"  class="box-shadow sharp">2</button>
             <button id="three"  class="box-shadow sharp">3</button>
             <button id="four"  class="box-shadow sharp">4</button>
@@ -60,5 +60,6 @@
             <button id="six"  class="box-shadow sharp">6</button>
         </section>
     </section>
+    <script src="script/script.js"></script>
 </body>
 </html>
