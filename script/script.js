@@ -23,13 +23,18 @@ let window1 ={
 const btn = document.querySelectorAll("#bottom button")
 
 
-let userInput="-";
-let runs="-";
-const maxWickets=1;
+let runs=0;
+const maxWickets=10;
 let target="-";
+let over_runs=[]
+let wickets=0
+
+let userInput="-";
 let compInput="-";
 let userBatting=true;
-let innings=0
+let turn_left=1;
+let result;
+let game_over=false
 
 function intialise()
 {
@@ -60,11 +65,72 @@ btn[5].addEventListener("click",function(){
 
 function renderGame(s)
 {
-    window1.mid.ele[window1.mid.userValue].innerHTML=s
-    window1.mid.ele[window1.mid.compValue].innerHTML=rand()
+    if(game_over)
+        return
+    userInput=s
+    compInput=rand()
+
+    if(over_runs.length===6)
+        over_runs=[]
+
+    if(userInput===compInput)
+    {
+        result="OUT"
+        over_runs.push("W")
+        wickets++
+    }
+    else{
+        result=s
+        runs+=s;
+        over_runs.push(s)
+    }
+
+    if(wickets===maxWickets)
+    {
+        if(turn_left===1)
+        {
+            target=runs+1
+            turn_left=0
+            runs=0
+            wickets=0
+            over_runs=[]
+        }
+        else{
+            game_over=true
+        }
+    }
+        
+   
+
+    renderHTML()
 }
 
 function rand()
 {
+    if(turn_left===1)
+    {
+        if(userInput>3)
+            return Math.ceil(Math.random()*4) +2
+    }
     return Math.ceil(Math.random()*6)
+}
+
+function renderHTML()
+{
+    window1.top.ele[window1.top.target].innerHTML=target
+    for(let i=0;i<6;i++)
+    {
+        if(over_runs[i])
+            window1.top.ele[window1.top.ball[i]].innerHTML=over_runs[i]
+        else
+            window1.top.ele[window1.top.ball[i]].innerHTML="-" 
+    }
+    window1.top.ele[window1.top.runs].innerHTML=runs + "/" + wickets
+    window1.top.ele[window1.top.wicketsLeft].innerHTML=maxWickets - wickets
+
+
+    
+    window1.mid.ele[window1.mid.compValue].innerHTML=compInput
+    window1.mid.ele[window1.mid.result].innerHTML=result
+    window1.mid.ele[window1.mid.userValue].innerHTML=userInput
 }
