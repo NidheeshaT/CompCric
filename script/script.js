@@ -24,10 +24,10 @@ const btn = document.querySelectorAll("#bottom button")
 
 
 let runs=0;
-const maxWickets=10;
+const maxWickets=5;
 let target="-";
 let over_runs=[]
-const maxovers=5
+const maxovers=10
 let overs=0
 let wickets=0
 
