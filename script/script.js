@@ -27,22 +27,36 @@ let runs=0;
 const maxWickets=10;
 let target="-";
 let over_runs=[]
+const maxovers=5
+let overs=0
 let wickets=0
 
 let userInput="-";
 let compInput="-";
-let userBatting=true;
+// let userBatting=true;
 let turn_left=1;
-let result;
+let result="-";
 let game_over=false
+
+function refresh()
+{
+    runs=0;
+    over_runs=[]
+    overs=0
+    wickets=0
+    userInput="-";
+    compInput="-";
+}
 
 function intialise()
 {
-
+    refresh()
+    result="-";
+    game_over=false;
+    target="-"
+    turn_left=1;
+    renderHTML()
 }
-
-
-
 
 btn[0].addEventListener("click",function(){
     renderGame(1)
@@ -63,6 +77,14 @@ btn[5].addEventListener("click",function(){
     renderGame(6)
 })
 
+document.addEventListener("keypress",(event)=>{
+    console.log(event.code)
+    if(event.code==="KeyR")
+    {
+        intialise()
+    }
+})
+
 function renderGame(s)
 {
     if(game_over)
@@ -71,37 +93,63 @@ function renderGame(s)
     compInput=rand()
 
     if(over_runs.length===6)
+    {
         over_runs=[]
-
+    }
+    let temp;
     if(userInput===compInput)
     {
         result="OUT"
-        over_runs.push("W")
+        temp="W"
         wickets++
     }
     else{
-        result=s
-        runs+=s;
-        over_runs.push(s)
+        if(turn_left===1)
+            temp=userInput
+        else{
+            temp=compInput
+        }
+        runs+=temp
+        result=temp   
+    }
+    over_runs.push(temp)
+    overs+=0.1
+    overs=Math.floor(overs*10)/10 //two remove floating point errors
+
+    if(over_runs.length==6)
+    {
+        overs=Math.ceil(overs);//to convert 0.6 to 1
     }
 
-    if(wickets===maxWickets)
+    
+    if(wickets===maxWickets||overs===maxovers)
     {
         if(turn_left===1)
         {
             target=runs+1
             turn_left=0
-            runs=0
-            wickets=0
-            over_runs=[]
+            refresh()
+            result="Balling"
         }
         else{
+            if(target>runs)
+                result="You Won"
+            else
+                result="You Lost"
             game_over=true
         }
     }
-        
-   
 
+    if(turn_left===0)
+    {
+        if(runs>=target)
+        {
+            result="You Lost"
+            game_over=true
+        }
+    }
+    
+        
     renderHTML()
 }
 
@@ -110,7 +158,7 @@ function rand()
     if(turn_left===1)
     {
         if(userInput>3)
-            return Math.ceil(Math.random()*4) +2
+            return Math.ceil(Math.random()*3) +3
     }
     return Math.ceil(Math.random()*6)
 }
@@ -118,6 +166,7 @@ function rand()
 function renderHTML()
 {
     window1.top.ele[window1.top.target].innerHTML=target
+    window1.top.ele[window1.top.over].innerHTML=overs + "/" + maxovers
     for(let i=0;i<6;i++)
     {
         if(over_runs[i])
