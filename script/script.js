@@ -177,8 +177,11 @@ function renderHTML()
     window1.top.ele[window1.top.runs].innerHTML=runs + "/" + wickets
     window1.top.ele[window1.top.wicketsLeft].innerHTML=maxWickets - wickets
 
-
-    
+    if(turn_left===0)
+    {
+        window1.mid.ele[window1.mid.compStat].innerHTML="Batting";
+        window1.mid.ele[window1.mid.userStat].innerHTML="Bowling";
+    }
     window1.mid.ele[window1.mid.compValue].innerHTML=compInput
     window1.mid.ele[window1.mid.result].innerHTML=result
     window1.mid.ele[window1.mid.userValue].innerHTML=userInput
