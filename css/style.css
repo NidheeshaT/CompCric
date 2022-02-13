@@ -65,6 +65,7 @@ body{
     color: white;
     padding: 1% 2%;
     border-radius:10% ;
+    font-size: 1.5vmax;
 }
 
 #comp div,#user div{
@@ -80,8 +81,8 @@ body{
 #result{
     color: rgb(238, 238, 238);
     text-shadow: 1px 1px 3px black,-2px -2px 5px black;
-    padding: 5% 15%;
-    font-size: 15vmin;
+    padding: 5% 12%;
+    font-size: 10vmin;
     background-color: rgb(80, 255, 80);
     margin: 5% 0px;
     border-radius: 15px;
