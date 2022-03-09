@@ -5,21 +5,68 @@
     box-sizing: border-box;
     font-family:  'Roboto Slab', serif;
 }
+:root{
+    --primary:#00b81f;
+    --secondary:#a2ff33;
+    --teritary:#ceff82;
+    --extra:#f3ffe6;
+}
 
 body{
-    background:url(../resources/background.jpg) #0a0025 center center/cover; /* https://source.unsplash.com/1080x600/?river */
+    background: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
+
+body::after{
+    content: "";
+    position: absolute;
+    top: 15%;
+    background: var(--secondary);
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    animation: slide-vertical 5s ease-in-out 0s infinite;
+}
+
+body::before{
+    content: "";
+    position: absolute;
+    top:30%;
+    background: linear-gradient(180deg,var(--teritary),var(--extra));
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: slide-vertical 5s ease-in-out 0s infinite;
+}
+
+@keyframes slide-vertical {
+    50%{
+        top: 0%;
+    }
+}
+
+
+#screen{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(145, 255, 145, 0.699);
+    backdrop-filter: blur(2px);
+}
+
 
 #window{
     width: 80%;
-    background: url(../resources/stadium.jpg) rgb(129 233 43) center center/cover;
+    background:radial-gradient(var(--secondary),var(--teritary),var(--secondary));
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
 }
 
 /* Top/game info */
@@ -79,11 +126,11 @@ body{
 }
 
 #result{
-    color: rgb(238, 238, 238);
+    color: white;
     text-shadow: 1px 1px 3px black,-2px -2px 5px black;
     padding: 5% 12%;
     font-size: 10vmin;
-    background-color: rgb(80, 255, 80);
+    background-color: black;
     margin: 5% 0px;
     border-radius: 15px;
     box-shadow: 2px -2px 16px black;
@@ -101,16 +148,16 @@ body{
     margin: 2%;
     color: black;
     font-size: 1.3rem;
-   background: linear-gradient(0deg,rgb(255, 251, 215),rgb(157 126 250));
+   background-color: var(--secondary);
     border-width:3px ;
     border-color:  #8a9110;
     border-radius:5px ;     
 }
 
 #bottom button:hover{
-    background: linear-gradient(0deg,#ff7f5b,#ff3800);
+    background: linear-gradient(0deg,var(--secondary),var(--primary),var(--secondary));
     position: relative;
-    top:5px;
+    top:2px;
     box-shadow:none;
 }
 
