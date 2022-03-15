@@ -60,14 +60,19 @@ body::before{
     backdrop-filter: blur(2px);
 }
 
-
+/*Main window*/
 #window{
     width: 80%;
-    background:radial-gradient(var(--secondary),var(--teritary),var(--secondary));
+    background:radial-gradient(var(--secondary),transparent,var(--secondary));
     display: flex;
     flex-direction: column;
     border-radius: 10px;
 }
+
+#window > section{
+    margin: 30px 1px;
+}
+
 
 /* Top/game info */
 #top{
@@ -75,7 +80,7 @@ body::before{
     flex-wrap: wrap;
     justify-content: space-between;
     color:black;
-    margin-top:0.5%;
+    margin-top:20px;
 }
 
 #top > div{
@@ -110,28 +115,28 @@ body::before{
 #comp,#user{
     background-color: black;
     color: white;
-    padding: 1% 2%;
+    padding: 10px;
     border-radius:10% ;
-    font-size: 1.5vmax;
+    font-size: 1.3rem;
 }
 
 #comp div,#user div{
-    margin: 1vh 0px;
+    margin: 5px 10px;
 }
 
 #comp-stat,#user-stat{
     background-color: white;
     color: black;
-    padding: 1px;
+    padding: 2px;
 }
 
 #result{
     color: white;
     text-shadow: 1px 1px 3px black,-2px -2px 5px black;
-    padding: 5% 12%;
-    font-size: 10vmin;
+    padding: 20px 60px;
+    font-size: 5rem;
     background-color: black;
-    margin: 5% 0px;
+    margin:10px 0px;
     border-radius: 15px;
     box-shadow: 2px -2px 16px black;
 }
@@ -141,11 +146,12 @@ body::before{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 #bottom button{
-    padding: 0.5% 1.2%;
-    margin: 2%;
+    padding: 10px 20px;
+    margin: 10px 20px;
     color: black;
     font-size: 1.3rem;
    background-color: var(--secondary);
