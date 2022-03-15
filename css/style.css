@@ -63,10 +63,14 @@ body::before{
 /*Main window*/
 #window{
     width: 80%;
-    background:radial-gradient(var(--secondary),var(--teritary),var(--secondary));
+    background:radial-gradient(var(--secondary),transparent,var(--secondary));
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+}
+
+#window > section{
+    margin: 30px 1px;
 }
 
 
@@ -132,7 +136,7 @@ body::before{
     padding: 20px 60px;
     font-size: 5rem;
     background-color: black;
-    margin:5% 0px;
+    margin:10px 0px;
     border-radius: 15px;
     box-shadow: 2px -2px 16px black;
 }
@@ -147,7 +151,7 @@ body::before{
 
 #bottom button{
     padding: 10px 20px;
-    margin: 10px;
+    margin: 10px 20px;
     color: black;
     font-size: 1.3rem;
    background-color: var(--secondary);
