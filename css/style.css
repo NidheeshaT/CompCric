@@ -63,7 +63,9 @@ body::before{
 /*Main window*/
 #window{
     width: 80%;
-    background:radial-gradient(var(--secondary),transparent,var(--secondary));
+    /* background:radial-gradient(var(--secondary),transparent,var(--secondary)); */
+    background: url(../resources/stadium.jpg) #414900 center center/cover;
+    /* background-blend-mode: luminosity; */
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -84,7 +86,12 @@ body::before{
 }
 
 #top > div{
+   background:rgba(255, 255, 255, 0.253);
+   backdrop-filter: blur(1px);
+    border-radius: 5px;
     margin: 3px;
+    font-size: 1.1rem;
+    padding: 1px;
 }
 
 #over{
@@ -150,19 +157,19 @@ body::before{
 }
 
 #bottom button{
+    position: relative;
     padding: 10px 20px;
     margin: 10px 20px;
-    color: black;
+    color: white;
     font-size: 1.3rem;
-   background-color: var(--secondary);
-    border-width:3px ;
-    border-color:  #8a9110;
-    border-radius:5px ;     
-}
+    background-color: black;
+    border-width: 3px;
+    border-color: #ababab;
+    border-radius: 5px;
+}    
 
 #bottom button:hover{
-    background: linear-gradient(0deg,var(--secondary),var(--primary),var(--secondary));
-    position: relative;
+    border-radius: 8px;
     top:2px;
     box-shadow:none;
 }
@@ -172,5 +179,5 @@ body::before{
     box-shadow: 1px 1px 5px 1px black;
 }
 .sharp{
-    text-shadow: -1px 1px 2px rgb(255 255 255);
+    text-shadow: -1px 1px 1px rgb(166, 166, 166);
 }
