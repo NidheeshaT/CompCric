@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,61 +8,97 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" media="screen and (max-width:600px) ,(max-height:500px) " href="css/small_screen.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <title>Cricket</title>
 </head>
-<body>
-    <header>COMP CRIC</header>
-    <section id="window" class="box-shadow">
-        <section id="top" class="sharp">
-            <div id="target-box">
-                Target:
-                <span id="target"class="box">-</span>
+
+<body onload="setLoader()" class="flex justify-center items-center h-screen w-screen overflow-hidden bg-gray-200">
+    <!--Preloader-->
+    <div class="loading" id="loader">
+        <div class="text-5xl loading-text">
+            <span class="loading-text-words">C</span>
+            <span class="loading-text-words">O</span>
+            <span class="loading-text-words">M</span>
+            <span class="loading-text-words">P</span>
+            <span class="loading-text-words">C</span>
+            <span class="loading-text-words">R</span>
+            <span class="loading-text-words">I</span>
+            <span class="loading-text-words">C</span>
+        </div>
+    </div>
+    <!--Background blobs-->
+    <div
+        class="absolute top-0 -left-4 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-70">
+    </div>
+    <div
+        class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70">
+    </div>
+    <div
+        class="absolute -bottom-8 left-20 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl opacity-70">
+    </div>
+
+    <!--Game Window-->
+    <section style="display:none;" id="window"
+        class="relative w-4/5 flex flex-col border rounded border-red-600 bg-white border-8 shadow-2xl bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200">
+        <section id="top" class="flex flex-wrap justify-between">
+            <div id="target-box" class="text-4xl tracking-tight text-green-400">Target:
+                <span id="target" class="text-yellow-400 box">0</span>
             </div>
-            <div id="over-scores">
+            <div id="over-scores" class="text-4xl tracking-tight text-green-400">
                 Over
-                <span class="box">-/-</span> :
-                <span class="box">-</span>
-                <span class="box">-</span>
-                <span class="box">-</span>
-                <span class="box">-</span>
-                <span class="box">-</span>
-                <span class="box">-</span>
+                <span class="text-yellow-400 box">0/0</span> :
+                <span class="box">0</span>
+                <span class="box">0</span>
+                <span class="box">0</span>
+                <span class="box">0</span>
+                <span class="box">0</span>
+                <span class="box">0</span>
             </div>
-            <div id="current-score">
-                <div>
-                    Runs: 
-                    <span class="box">-/-</span>
-                </div>
-                <div>
-                    Wickets left:
-                    <span class="box">-</span>
+            <div id="current-score" class="text-4xl tracking-tight text-green-400">
+                <div>Runs:
+                    <span class="text-yellow-400 box">0/0</span>
                 </div>
             </div>
         </section>
-        <section id="mid">
-            <div id="comp">
-                <div>Computer:</div>
+        <section id="mid" class="text-center flex justify-around items-center flex-wrap">
+
+            <div id="comp" class="border shadow-lg w-44">
+                <img alt="Placeholder" class="block h-auto w-full"
+                    src="https://res.cloudinary.com/dpfpk49oa/image/upload/v1648869663/computer_d8hu9h.png">
                 <div id="comp-stat" class="mid-js">Bowling</div>
-                 <div id="comp-value" class="mid-js">-</div>
+                <div id="comp-value" class="mid-js">-</div>
             </div>
-            <div id="result" class="sharp mid-js">
-                -
+            <div id="result" class="text-4xl tracking-tight text-yellow-400 mid-js">
+                0
             </div>
-            <div id="user">
-                <div>You:</div>
+            <div id="user" class="border shadow-lg w-44">
+                <img alt="Placeholder" class="block h-auto w-full"
+                    src="https://res.cloudinary.com/dpfpk49oa/image/upload/v1648869664/programmer_phuke4.png">
                 <div id="user-stat" class="mid-js">Batting</div>
-                <div id="user-value" class="mid-js">-</div>
+                <div id="user-value" class="mid-js">0</div>
             </div>
         </section>
         <section id="bottom">
-            <button id="one"  value="1"class="box-shadow sharp">1</button>
-            <button id="two"  class="box-shadow sharp">2</button>
-            <button id="three"  class="box-shadow sharp">3</button>
-            <button id="four"  class="box-shadow sharp">4</button>
-            <button id="five"  class="box-shadow sharp">5</button>
-            <button id="six"  class="box-shadow sharp">6</button>
+            <button id="one" onclick="playSound('btn-click')" value="1">1</button>
+            <button id="two" onclick="playSound('btn-click')">2</button>
+            <button id="three" onclick="playSound('btn-click')">3</button>
+            <button id="four" onclick="playSound('btn-click')">4</button>
+            <button id="five" onclick="playSound('btn-click')">5</button>
+            <button id="six" onclick="playSound('btn-click')">6</button>
         </section>
+        <div class="flex justify-center items-center m-5 text-4xl tracking-tight text-red-500">
+            <img alt="Placeholder" class="w-14 mr-5"
+                src="https://res.cloudinary.com/dpfpk49oa/image/upload/v1648870404/wicket_wmyy4o.png"><span
+                class="text-yellow-400 box">0</span>
+        </div>
     </section>
+    <!--Button click sound effect-->
+    <audio id="btn-click"
+        src="https://res.cloudinary.com/dpfpk49oa/video/upload/v1648873033/zapsplat_multimedia_button_click_fast_short_004_79288_si6mee.mp3"
+        autostart="false"></audio>
+    <script
+        src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
     <script src="script/script.js"></script>
 </body>
+
 </html>

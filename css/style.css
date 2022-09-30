@@ -1,199 +1,189 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    font-weight: bold;
-    box-sizing: border-box;
-    font-family:  'Roboto Slab', serif;
-}
-:root{
-    --primary:#00b81f;
-    --secondary:#a2ff33;
-    --teritary:#ceff82;
-    --extra:#f3ffe6;
+// CSS from https://github.com/NidheeshaT/CompCric
+#window > section {
+  margin: 30px 30px;
 }
 
-body{
-    background: var(--primary);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+.box {
+  display: inline-block;
+  padding: 1px 5px;
+  margin: 1px;
 }
 
-body::after{
-    content: "";
-    position: absolute;
-    top: 15%;
-    background: var(--secondary);
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    animation: slide-vertical 5s ease-in-out 0s infinite;
+#mid {
+  height: 50%;
 }
 
-body::before{
-    content: "";
-    position: absolute;
-    top:30%;
-    background: linear-gradient(180deg,var(--teritary),var(--extra));
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    animation: slide-vertical 5s ease-in-out 0s infinite;
+#comp,
+#user {
+  padding: 10px;
+  border-radius: 10%;
+  font-size: 1.3rem;
 }
 
-@keyframes slide-vertical {
-    50%{
-        top: 0%;
-    }
+#comp div,
+#user div {
+  margin: 5px 10px;
 }
 
-
-#screen{
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(145, 255, 145, 0.699);
-    backdrop-filter: blur(2px);
+#comp-stat,
+#user-stat {
+  padding: 2px;
 }
 
-header{
-    position: fixed;
-    top:0px;
-    font-size: 2.5rem;
-    background-image: repeating-linear-gradient(to right, #34ff6a 0%, #FFEE00 100%);
-    background-size: 100%;
-    background-repeat: repeat ;
-
-    -webkit-background-clip:text; 
-    -webkit-text-fill-color: transparent;
-
-    -moz-background-clip: text;
-    -moz-text-fill-color:transparent;
+#result {
+  padding: 20px 60px;
+  font-size: 5rem;
+  margin: 10px 0px;
+  border-radius: 15px;
 }
 
-/*Main window*/
-#window{
-    width: 80%;
-    /* background:radial-gradient(var(--secondary),transparent,var(--secondary)); */
-    background: url(../resources/stadium.jpg) #414900 center center/cover;
-    /* background-blend-mode: luminosity; */
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
+#bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-#window > section{
-    margin: 30px 1px;
+#bottom button {
+  padding: 10px 20px;
+  margin: 10px 20px;
+  font-size: 1.3rem;
+  border-radius: 50%;
 }
 
-
-/* Top/game info */
-#top{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color:black;
-    margin-top:20px;
+button {
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  color: #fff;
+  background-color: #ef476f;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
 }
 
-#top > div{
-   background:rgba(255, 255, 255, 0.253);
-   backdrop-filter: blur(1px);
-    border-radius: 5px;
-    margin: 3px;
-    font-size: 1.1rem;
-    padding: 1px;
+button:active {
+  transform: scale(0.6);
 }
 
-#over{
-    color: black;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
+button:hover,
+#user:hover,
+#comp:hover {
+  box-shadow: 0 0 0.5rem rgb(105, 105, 105);
 }
 
-.box{
-    display: inline-block;
-    color: white;
-    background-color: black;
-    padding: 1px 5px;
-    margin: 1px;
-    text-shadow: none;
+#user,
+#comp {
+  transition: all 0.2s ease-in-out;
 }
 
-/* MID section/display board*/
-#mid{
-    height: 50%;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap:wrap ;
+/* Preloader Animation */
+h1 span {
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  animation: bounce 0.3s ease infinite alternate;
+  font-size: 80px;
+  color: #fff;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+    0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
 }
-
-#comp,#user{
-    background-color: black;
-    color: white;
-    padding: 10px;
-    border-radius:10% ;
-    font-size: 1.3rem;
+h1 span:nth-child(2) {
+  animation-delay: 0.1s;
 }
-
-#comp div,#user div{
-    margin: 5px 10px;
+h1 span:nth-child(3) {
+  animation-delay: 0.2s;
 }
-
-#comp-stat,#user-stat{
-    background-color: white;
-    color: black;
-    padding: 2px;
+h1 span:nth-child(4) {
+  animation-delay: 0.3s;
 }
-
-#result{
-    color: white;
-    text-shadow: 1px 1px 3px black,-2px -2px 5px black;
-    padding: 20px 60px;
-    font-size: 5rem;
-    background-color: black;
-    margin:10px 0px;
-    border-radius: 15px;
-    box-shadow: 2px -2px 16px black;
+h1 span:nth-child(5) {
+  animation-delay: 0.4s;
 }
-
-/* Bottom/user input */
-#bottom{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
+h1 span:nth-child(6) {
+  animation-delay: 0.5s;
 }
-
-#bottom button{
-    position: relative;
-    padding: 10px 20px;
-    margin: 10px 20px;
-    color: white;
-    font-size: 1.3rem;
-    background-color: black;
-    border-width: 3px;
-    border-color: #ababab;
-    border-radius: 5px;
-}    
-
-#bottom button:hover{
-    border-radius: 8px;
-    top:2px;
-    box-shadow:none;
+h1 span:nth-child(7) {
+  animation-delay: 0.6s;
 }
-
-/* Utility Classes */
-.box-shadow{
-    box-shadow: 1px 1px 5px 1px black;
+h1 span:nth-child(8) {
+  animation-delay: 0.7s;
 }
-.sharp{
-    text-shadow: -1px 1px 1px rgb(166, 166, 166);
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+      0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+      0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.loading-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}
+.loading-text span {
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+}
+.loading-text span:nth-child(1) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0s infinite linear alternate;
+}
+.loading-text span:nth-child(2) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.2s infinite linear alternate;
+}
+.loading-text span:nth-child(3) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.4s infinite linear alternate;
+}
+.loading-text span:nth-child(4) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.6s infinite linear alternate;
+}
+.loading-text span:nth-child(5) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.8s infinite linear alternate;
+}
+.loading-text span:nth-child(6) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1s infinite linear alternate;
+}
+.loading-text span:nth-child(7) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.2s infinite linear alternate;
+}
+.loading-text span:nth-child(8) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.4s infinite linear alternate;
+}
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
 }
