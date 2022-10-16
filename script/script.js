@@ -181,7 +181,7 @@ options = {
   cursorOuter: 'circle-basic',
   hoverEffect: false,
   hoverItemMove: false,
-  defaultCursor: false,
+  defaultCursor: true,
   outerWidth: 30,
   outerHeight: 30,
 };
