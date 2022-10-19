@@ -3,6 +3,10 @@
   margin: 30px 30px;
 }
 
+*{
+  cursor : cell;
+}
+
 .box {
   display: inline-block;
   padding: 1px 5px;
